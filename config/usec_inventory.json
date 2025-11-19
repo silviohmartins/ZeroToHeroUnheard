@@ -1,0 +1,67 @@
+{
+    "equipment": "664115f68b8ae858750609b3",
+    "fastPanel": {},
+    "favoriteItems": [],
+    "hideoutAreaStashes": {
+        "27": "66c903b7cbd137db330413a2"
+    },
+    "items": [
+        {
+            "_id": "664115f68b8ae858750609b3",
+            "_tpl": "55d7217a4bdc2d86028b456d"
+        },
+        {
+            "_id": "63db64cbf9963741dc0d741f",
+            "_tpl": "6401c7b213d9b818bf0e7dd7"
+        },
+        {
+            "_id": "664115f68b8ae858750609a4",
+            "_tpl": "665ee77ccf2d642e98220bca",
+            "parentId": "664115f68b8ae858750609b3",
+            "slotId": "SecuredContainer"
+        },
+        {
+            "_id": "664115f68b8ae858750609b1",
+            "_tpl": "65e080be269cbd5c5005e529",
+            "parentId": "664115f68b8ae858750609b3",
+            "slotId": "Pockets"
+        },
+        {
+            "_id": "664115f68b8ae85875060b39",
+            "_tpl": "6602bcf19cc643f44a04274b"
+        },
+        {
+            "_id": "5fe49444ae6628187a2e78ba",
+            "_tpl": "5963866b86f7747bfa1c4462"
+        },
+        {
+            "_id": "5fe49444ae6628187a2e78b9",
+            "_tpl": "5963866286f7747bf429b572"
+        },
+        {
+            "_id": "60dca3da42ad9b706b369aca",
+            "_tpl": "602543c13fee350cd564d032"
+        },
+        {
+            "_id": "6651d79c3a25ddd0fc054a05",
+            "_tpl": "65ca457b4aafb5d7fc0dcb5d",
+            "parentId": "664115f68b8ae858750609b3",
+            "slotId": "Scabbard",
+            "upd": {
+                "Repairable": {
+                    "Durability": 70,
+                    "MaxDurability": 70
+                }
+            }
+        },
+        {
+            "_id": "66c903b7cbd137db330413a2",
+            "_tpl": "66740c3739b9da6ce402ee65"
+        }
+    ],
+    "questRaidItems": "5fe49444ae6628187a2e78b9",
+    "questStashItems": "5fe49444ae6628187a2e78ba",
+    "sortingTable": "60dca3da42ad9b706b369aca",
+    "stash": "664115f68b8ae85875060b39",
+    "hideoutCustomizationStashId": "676db384777490e23c45b657"
+}

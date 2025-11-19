@@ -2,6 +2,8 @@
 
 Um mod para SPT 4.0 que adiciona um novo perfil de início do zero, mantendo os benefícios da edição Unheard.
 
+*Baseado no mod [Zero2Hero++ Unheard Edition](https://forge.sp-tarkov.com/mod/1677/zero2hero-unheard-edition)*
+
 ## Descrição
 
 Este mod cria um novo perfil chamado **"Zero To Hero Unheard"** que permite começar do zero absoluto, mas mantendo os benefícios da edição Unheard (Gamma case e tamanho de stash).

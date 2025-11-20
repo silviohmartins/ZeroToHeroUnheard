@@ -52,12 +52,12 @@ namespace ZeroToHeroUnheard
                     return Task.CompletedTask;
                 }
 
-                // Carrega os arquivos JSON de configuração usando ModHelper
-                var bearInventoryData = _modHelper.GetJsonDataFromFile<object>(_modPath, Path.Join("config", "bear_inventory.json"));
-                var usecInventoryData = _modHelper.GetJsonDataFromFile<object>(_modPath, Path.Join("config", "usec_inventory.json"));
-                var traderStanding = _modHelper.GetJsonDataFromFile<object>(_modPath, Path.Join("config", "traders.json"));
+                // Carrega os dados de configuração usando ModHelper
+                var bearInventory = _modHelper.GetJsonDataFromFile<BotBaseInventory>(_modPath, Path.Join("config", "bear_inventory.json"));
+                var usecInventory = _modHelper.GetJsonDataFromFile<BotBaseInventory>(_modPath, Path.Join("config", "usec_inventory.json"));
+                var traderStandingObj = _modHelper.GetJsonDataFromFile<ProfileTraderTemplate>(_modPath, Path.Join("config", "traders.json"));
                 var description = _modHelper.GetJsonDataFromFile<string>(_modPath, Path.Join("config", "descLocale.json"));
-                var skillIssue = _modHelper.GetJsonDataFromFile<object>(_modPath, Path.Join("config", "skill_issue.json"));
+                var skillIssueObj = _modHelper.GetJsonDataFromFile<Skills>(_modPath, Path.Join("config", "skill_issue.json"));
 
                 // Usa reflexão para fazer uma cópia profunda do perfil sem serializar MongoId
                 // Cria uma nova instância de ProfileSides e copia as propriedades
@@ -65,7 +65,6 @@ namespace ZeroToHeroUnheard
                 
                 // Copia as propriedades usando reflexão para evitar problemas com MongoId
                 var profileType = typeof(ProfileSides);
-                var unheardProfileType = unheardProfile.GetType();
                 
                 foreach (var prop in profileType.GetProperties())
                 {
@@ -84,41 +83,27 @@ namespace ZeroToHeroUnheard
                 }
 
                 // Aplica as modificações diretamente nas propriedades do objeto
-                // Usa o ModHelper para deserializar diretamente para os tipos corretos
-                // Isso evita problemas com MongoId porque o ModHelper usa as configurações corretas do SPT
-                if (bearInventoryData != null && zthProfile.Bear?.Character != null)
+                // IMPORTANTE: Substitui o Trader DEPOIS de copiar para garantir que os valores do JSON sejam usados
+                if (traderStandingObj != null)
                 {
-                    // Tenta usar o ModHelper para deserializar diretamente
-                    var bearInventory = _modHelper.GetJsonDataFromFile<BotBaseInventory>(_modPath, Path.Join("config", "bear_inventory.json"));
-                    if (bearInventory != null)
+                    if (zthProfile.Bear != null)
                     {
-                        zthProfile.Bear.Character.Inventory = bearInventory;
+                        zthProfile.Bear.Trader = traderStandingObj;
+                    }
+                    if (zthProfile.Usec != null)
+                    {
+                        zthProfile.Usec.Trader = traderStandingObj;
                     }
                 }
 
-                if (usecInventoryData != null && zthProfile.Usec?.Character != null)
+                if (bearInventory != null && zthProfile.Bear?.Character != null)
                 {
-                    var usecInventory = _modHelper.GetJsonDataFromFile<BotBaseInventory>(_modPath, Path.Join("config", "usec_inventory.json"));
-                    if (usecInventory != null)
-                    {
-                        zthProfile.Usec.Character.Inventory = usecInventory;
-                    }
+                    zthProfile.Bear.Character.Inventory = bearInventory;
                 }
 
-                if (traderStanding != null)
+                if (usecInventory != null && zthProfile.Usec?.Character != null)
                 {
-                    var traderStandingObj = _modHelper.GetJsonDataFromFile<ProfileTraderTemplate>(_modPath, Path.Join("config", "traders.json"));
-                    if (traderStandingObj != null)
-                    {
-                        if (zthProfile.Bear != null)
-                        {
-                            zthProfile.Bear.Trader = traderStandingObj;
-                        }
-                        if (zthProfile.Usec != null)
-                        {
-                            zthProfile.Usec.Trader = traderStandingObj;
-                        }
-                    }
+                    zthProfile.Usec.Character.Inventory = usecInventory;
                 }
 
                 if (!string.IsNullOrEmpty(description))
@@ -126,19 +111,15 @@ namespace ZeroToHeroUnheard
                     zthProfile.DescriptionLocaleKey = description;
                 }
 
-                if (skillIssue != null)
+                if (skillIssueObj != null)
                 {
-                    var skillIssueObj = _modHelper.GetJsonDataFromFile<Skills>(_modPath, Path.Join("config", "skill_issue.json"));
-                    if (skillIssueObj != null)
+                    if (zthProfile.Bear?.Character != null)
                     {
-                        if (zthProfile.Bear?.Character != null)
-                        {
-                            zthProfile.Bear.Character.Skills = skillIssueObj;
-                        }
-                        if (zthProfile.Usec?.Character != null)
-                        {
-                            zthProfile.Usec.Character.Skills = skillIssueObj;
-                        }
+                        zthProfile.Bear.Character.Skills = skillIssueObj;
+                    }
+                    if (zthProfile.Usec?.Character != null)
+                    {
+                        zthProfile.Usec.Character.Skills = skillIssueObj;
                     }
                 }
 

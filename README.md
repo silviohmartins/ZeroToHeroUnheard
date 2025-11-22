@@ -23,8 +23,8 @@ Este mod cria um novo perfil chamado **"Zero To Hero Unheard"** que permite come
 
 ## Instalação
 
-1. Copie a pasta do mod para o diretório `user/mods/` do seu SPT
-2. Compile o projeto ou use o DLL já compilado
+1. Compile o projeto ou use o DLL já compilado
+2. Copie a pasta do mod para o diretório `user/mods/` do seu SPT
 3. Inicie o servidor SPT
 4. O novo perfil "Zero To Hero Unheard" estará disponível na seleção de perfis
 

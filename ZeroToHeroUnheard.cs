@@ -27,7 +27,7 @@ namespace ZeroToHeroUnheard
 
             if (string.IsNullOrEmpty(_modPath))
             {
-                _logger.Error("[JERO] ZeroToHeroUnheard - Não foi possível determinar o caminho do mod. O mod não fará alterações.");
+                _logger.Error("[JERO] ZeroToHeroUnheard - Could not determine mod path. The mod will not make any changes.");
             }
         }
 
@@ -48,7 +48,7 @@ namespace ZeroToHeroUnheard
                 // Verifica se o perfil "Unheard" existe
                 if (!profiles.TryGetValue("Unheard", out var unheardProfile))
                 {
-                    _logger.Error("[JERO] ZeroToHeroUnheard -  Perfil 'Unheard' não encontrado no banco de dados!");
+                    _logger.Error("[JERO] ZeroToHeroUnheard - Profile 'Unheard' not found in database!");
                     return Task.CompletedTask;
                 }
 
@@ -125,11 +125,11 @@ namespace ZeroToHeroUnheard
 
                 // Adiciona o novo perfil ao banco de dados
                 profiles[profileName] = zthProfile;
-                _logger.Success("[JERO] ZeroToHeroUnheard - Carregado com sucesso!");
+                _logger.Success("[JERO] ZeroToHeroUnheard - Loaded successfully!");
             }
             catch (Exception ex)
             {
-                _logger.Error($"[JERO] ZeroToHeroUnheard - Erro ao carregar o mod: {ex.Message}");
+                _logger.Error($"[JERO] ZeroToHeroUnheard - Error loading mod: {ex.Message}");
                 _logger.Error(ex.StackTrace ?? string.Empty);
             }
 

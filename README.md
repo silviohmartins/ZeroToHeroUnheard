@@ -1,48 +1,38 @@
 # ZeroToHeroUnheard
 
-Um mod para SPT 4.0 que adiciona um novo perfil de início do zero, mantendo os benefícios da edição Unheard.
+A mod for SPT 4.0 that adds a new zero-to-hero starting profile, maintaining the benefits of the Unheard edition.
 
-*Baseado no mod [Zero2Hero++ Unheard Edition](https://forge.sp-tarkov.com/mod/1677/zero2hero-unheard-edition)*
+*Based on the SPT 3.11 mod [Zero2Hero++ Unheard Edition](https://forge.sp-tarkov.com/mod/1677/zero2hero-unheard-edition)*
 
-## Descrição
+## Description
 
-Este mod cria um novo perfil chamado **"Zero To Hero Unheard"** que permite começar do zero absoluto, mas mantendo os benefícios da edição Unheard (Gamma case e tamanho de stash).
+This mod creates a new profile called **"Zero To Hero Unheard"** that allows you to start from absolute zero, while maintaining the benefits of the Unheard edition (Gamma case and stash size).
 
-## Funcionalidades
+## Features
 
-- ✅ **Perfil baseado no Unheard**: Mantém o status da edição Unheard (Gamma case e stash size)
-- ✅ **Inventário inicial básico**: Começa apenas com uma faca e equipamentos essenciais
-- ✅ **Traders desbloqueados**: Todos os traders começam com nível 1 de lealdade
-- ✅ **Skills zeradas**: Todas as habilidades começam do zero, sem vantagens iniciais
-- ✅ **Sem dinheiro inicial**: Começa sem rublos, começando do zero financeiro
+- ✅ **Unheard-based profile**: Maintains Unheard edition status (Gamma case and stash size)
+- ✅ **Basic starting inventory**: Starts with only a knife and essential equipment
+- ✅ **Unlocked traders**: All traders start with loyalty level 1
+- ✅ **Zeroed skills**: All skills start from zero, with no initial advantages
+- ✅ **No starting money**: Starts with no rubles, beginning from financial zero
 
-## Requisitos
+## Requirements
 
-- SPT versão ~4.0.0
-- Perfil "Unheard" deve existir no banco de dados do SPT
+- SPT version ~4.0.0
+- "Unheard" profile must exist in SPT database
 
-## Instalação
+## Installation
 
-1. Compile o projeto ou use o DLL já compilado
-2. Copie a pasta do mod para o diretório `user/mods/` do seu SPT
-3. Inicie o servidor SPT
-4. O novo perfil "Zero To Hero Unheard" estará disponível na seleção de perfis
+1. Compile the project or use the pre-compiled DLL
+2. Copy the mod folder to your SPT `user/mods/` directory
+3. Start the SPT server
+4. The new "Zero To Hero Unheard" profile will be available in the profile selection
 
-## Configuração
-
-Você pode personalizar o mod editando os arquivos JSON na pasta `config/`:
-
-- `bear_inventory.json` - Inventário inicial para facção BEAR
-- `usec_inventory.json` - Inventário inicial para facção USEC
-- `traders.json` - Configuração de standing inicial dos traders
-- `skill_issue.json` - Configuração de skills iniciais
-- `descLocale.json` - Descrição do perfil
-
-## Autor
+## Author
 
 **jero**
 
-## Licença
+## License
 
 MIT
 
